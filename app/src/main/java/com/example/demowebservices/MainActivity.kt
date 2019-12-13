@@ -9,12 +9,6 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import android.R.attr.data
-import android.provider.MediaStore
-import android.graphics.Bitmap
-import android.provider.MediaStore.*
-import android.provider.MediaStore.Images.*
-import android.provider.MediaStore.Images.Media.*
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.squareup.picasso.Picasso
 import okhttp3.OkHttpClient
@@ -35,29 +29,28 @@ class MainActivity : AppCompatActivity() {
             .build()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.github.com")
+            .baseUrl("https://pokeapi.co/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(okhttpClient)
             .build()
 
 
 
-        val gitHubService = retrofit.create(GitHubService::class.java)
-        gitHubService.buscarUsuario(etUsuario.text.toString())
-            .enqueue(object : Callback<Usuario> {
-                override fun onFailure(call: Call<Usuario>, t: Throwable) {
+        val GetPokemonService = retrofit.create(GetPokemonService::class.java)
+        GetPokemonService.buscarPokemon(etPokemon.text.toString())
+            .enqueue(object : Callback<Pokemon> {
+                override fun onFailure(call: Call<Pokemon>, t: Throwable) {
                     Toast.makeText(this@MainActivity,
                         t.message,
                         Toast.LENGTH_LONG)
                         .show()
                 }
 
-                override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
+                override fun onResponse(call: Call<Pokemon>, response: Response<Pokemon>) {
                     if(response.isSuccessful) {
-                        val usuario = response.body()
-                        val imageUri = usuario?.imagem
-                        Picasso.get().load(imageUri).into(idUsuario);
-                        tvUsuario.text = usuario?.nome
+                        val Pokemon = response.body()
+                        Picasso.get().load(Pokemon?.sprites?.frontDefault).into(idPokemon);
+                        tvPokemon.text = Pokemon?.name
                     } else {
                         Toast.makeText(this@MainActivity,
                             "Deu ruim",

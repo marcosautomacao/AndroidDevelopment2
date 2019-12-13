@@ -13,7 +13,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintVertical_bias="0.634" android:id="@+id/tvUsuario"
+            app:layout_constraintVertical_bias="0.634" android:id="@+id/tvPokemon"
             app:layout_constraintEnd_toEndOf="@+id/btPesquisar" app:layout_constraintStart_toStartOf="@+id/btPesquisar"
             android:textSize="25sp" android:textStyle="bold"/>
     <TextView
@@ -27,18 +27,18 @@
             android:layout_width="385dp"
             android:layout_height="40dp"
             android:inputType="textPersonName"
-            android:text="android"
             android:ems="10"
-            android:id="@+id/etUsuario"
+            android:id="@+id/etPokemon"
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintStart_toStartOf="@+id/textView" app:layout_constraintEnd_toEndOf="@+id/textView"/>
+            app:layout_constraintStart_toStartOf="@+id/textView" app:layout_constraintEnd_toEndOf="@+id/textView"
+            android:hint="Digite aqui o seu pokemon" app:layout_constraintHorizontal_bias="0.0"/>
     <ImageView
             android:layout_width="165dp"
             android:layout_height="127dp" app:srcCompat="@mipmap/ic_launcher"
-            android:id="@+id/idUsuario" android:layout_marginTop="8dp"
+            android:id="@+id/idPokemon" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/btPesquisar" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/tvUsuario" app:layout_constraintEnd_toEndOf="@+id/btPesquisar"
+            app:layout_constraintBottom_toTopOf="@+id/tvPokemon" app:layout_constraintEnd_toEndOf="@+id/btPesquisar"
             app:layout_constraintStart_toStartOf="@+id/btPesquisar"
             android:layout_marginStart="8dp"/>
     <Button
@@ -46,8 +46,8 @@
             android:layout_width="0dp"
             android:layout_height="44dp"
             android:id="@+id/btPesquisar" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/etUsuario"
-            app:layout_constraintEnd_toEndOf="@+id/etUsuario"
-            app:layout_constraintStart_toStartOf="@+id/etUsuario"/>
+            app:layout_constraintTop_toBottomOf="@+id/etPokemon"
+            app:layout_constraintEnd_toEndOf="@+id/etPokemon"
+            app:layout_constraintStart_toStartOf="@+id/etPokemon"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
